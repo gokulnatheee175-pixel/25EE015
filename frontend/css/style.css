@@ -1,0 +1,484 @@
+/* AttendEase - Classroom Attendance Marking System Stylesheet */
+:root {
+    --primary-color: #1e40af;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --secondary-color: #475569;
+    --accent-color: #0284c7;
+    --bg-body: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --sidebar-width: 260px;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+/* Layout */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: #0f172a;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #1e293b;
+}
+
+.sidebar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.sidebar-brand i {
+    font-size: 1.5rem;
+    color: #38bdf8;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 1rem 0.75rem;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-menu .nav-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    padding: 0.75rem 0.75rem 0.25rem;
+    font-weight: 600;
+}
+
+.sidebar-menu .nav-item {
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-menu .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar-menu .nav-link i {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.sidebar-menu .nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-menu .nav-link:hover i {
+    color: #38bdf8;
+}
+
+.sidebar-menu .nav-link.active {
+    color: #ffffff;
+    background: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.35);
+}
+
+.sidebar-menu .nav-link.active i {
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    color: #94a3b8;
+    background: #0f172a;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex-grow: 1;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Top Bar */
+.top-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.top-bar-title h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.top-bar-title p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Stat Cards */
+.stat-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.stat-info h6 {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-info .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.stat-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.stat-icon.primary { background: #dbeafe; color: #1d4ed8; }
+.stat-icon.success { background: #d1fae5; color: #059669; }
+.stat-icon.info { background: #e0f2fe; color: #0284c7; }
+.stat-icon.warning { background: #fef3c7; color: #d97706; }
+.stat-icon.danger { background: #fee2e2; color: #dc2626; }
+
+/* Custom Card Container */
+.custom-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+}
+
+.custom-card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.custom-card-header h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.custom-card-body {
+    padding: 1.5rem;
+}
+
+/* Tables */
+.table th {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-top: none;
+    padding: 0.85rem 1rem;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 0.85rem 1rem;
+    color: #334155;
+    font-size: 0.92rem;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Badges */
+.badge-shortage {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    font-weight: 600;
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+}
+
+.badge-safe {
+    background-color: #d1fae5;
+    color: #047857;
+    border: 1px solid #6ee7b7;
+    font-weight: 600;
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+}
+
+/* Radio attendance options */
+.attendance-toggle {
+    display: inline-flex;
+    gap: 0.75rem;
+}
+
+.attendance-toggle label {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Progress bar */
+.progress-attendance {
+    height: 10px;
+    border-radius: 6px;
+    background-color: #e2e8f0;
+}
+
+/* Alert Notification Toast */
+#notification-container {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    min-width: 320px;
+    max-width: 450px;
+}
+
+/* Mobile responsive */
+@media (max-width: 991px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+}
+
+/* Portal Landing Gateway Styles */
+.portal-card {
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.portal-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(30, 64, 175, 0.12);
+    border-color: #93c5fd;
+}
+
+.portal-card .card-hero {
+    padding: 2.5rem 2rem 1.5rem;
+    text-align: center;
+}
+
+.portal-icon {
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.portal-admin-icon {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: #ffffff;
+}
+
+.portal-user-icon {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: #ffffff;
+}
+
+/* Admin Quick Action Button Cards */
+.quick-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    gap: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.quick-action-btn:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(30, 64, 175, 0.08);
+}
+
+.quick-action-btn i {
+    font-size: 1.75rem;
+}
+
+/* Student Profile Badge Card */
+.student-id-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+}
+
+.student-id-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.student-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Attendance Prediction / Target Banner */
+.prediction-box {
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.prediction-box.shortage-alert {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+.prediction-box.safe-alert {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+}
+
+/* Print specific rules */
+@media print {
+    .sidebar, .top-header, .btn, .no-print, #notification-container {
+        display: none !important;
+    }
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .card {
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+    }
+}

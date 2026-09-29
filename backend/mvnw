@@ -1,0 +1,10 @@
+#!/bin/sh
+# AttendEase Maven Wrapper Script for Unix / Linux / Mac
+
+if [ -f "/c/apache-maven-3.9.9/bin/mvn" ]; then
+    exec "/c/apache-maven-3.9.9/bin/mvn" "$@"
+elif [ -f "C:/apache-maven-3.9.9/bin/mvn" ]; then
+    exec "C:/apache-maven-3.9.9/bin/mvn" "$@"
+else
+    exec mvn "$@"
+fi
